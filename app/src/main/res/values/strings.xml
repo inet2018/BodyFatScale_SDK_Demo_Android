@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">iWeightDemo</string>
+
+    <string name="scanner_action_scan">Scan</string>
+    <string name="scanner_title">Select device:</string>
+    <string name="scanner_action_cancel">Cancel</string>
+    <string name="scanner_empty">No device</string>
+    <string name="not_available">n/a</string>
+
+    <string name="start_scan">Scan</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="not_support_ble">Phone does not support ble！</string>
+
+    <string name="sync_user">Sync User</string>
+
+    <string name="unit_kg">kg</string>
+    <string name="unit_lb">lb</string>
+    <string name="unit_st">st</string>
+    <string name="unit_jin">jin</string>
+
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="age">Age: %d</string>
+    <string name="height">Height: %d</string>
+    <string name="weight">Weight: %s</string>
+    <string name="temp">Temp: %s</string>
+    <string name="default_value">--</string>
+    <string name="default_weight">Weight: --.--</string>
+    <string name="default_temp">Temp: --.--</string>
+
+    <string name="state_connected">Connected device: %s</string>
+    <string name="state_bound">Bind device: %s</string>
+    <string name="state_disconnected">Disconnected from device.</string>
+    <string name="state_service_discovered">Service found.</string>
+    <string name="state_indication_success">Indication success.</string>
+    <string name="state_time_out">Connection timed out.</string>
+    <string name="state_connecting">Connecting&#8230;</string>
+    <string name="unbound">Untied</string>
+    <string name="state_error">Connection exception, exception information: %1$s; code: %2$d</string>
+    <string name="settings_status">Status: %s</string>
+    <string name="normal">Normal.</string>
+    <string name="low_power">Screen off.</string>
+    <string name="low_voltage">Low voltage.</string>
+    <string name="error">Weighing overload.</string>
+    <string name="time_out">Weighing timeout.</string>
+    <string name="set_unit_success">Set unit success.</string>
+    <string name="set_unit_failed">Set unit failed.</string>
+    <string name="set_user_success">Set user success</string>
+    <string name="set_user_failed">Set user failed.</string>
+    <string name="adc_measured_ind">Impedance measurement&#8230;</string>
+    <string name="adc_error">Impedance measurement failed.</string>
+    <string name="source_decimal">Source data decimal digit: %d</string>
+    <string name="kg_decimal">\nKg decimal digit: %d</string>
+    <string name="lb_decimal">\nLb decimal digit: %d</string>
+    <string name="st_decimal">\nSt decimal digit: %d</string>
+    <string name="kg_graduation">\nkg division: %d</string>
+    <string name="lb_graduation">\nlb division: %d</string>
+    <string name="algorithm_id">\nAlgorithm ID: %d</string>
+
+    <string name="body_fat_data">Body fat data: %s</string>
+
+    <string name="ble_version">BLE Version: %s</string>
+    <string name="user_id">User ID: %s</string>
+    <string name="mcu_date">Weighting Date: %s</string>
+    <string name="mcu_time">Weighting Time: %s</string>
+    <string name="adc">Impedance value: %s</string>
+    <string name="light">Light</string>
+
+</resources>
