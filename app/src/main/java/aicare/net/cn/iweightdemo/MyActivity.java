@@ -59,10 +59,10 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
 
     private WBYService.WBYBinder binder;
 
-    private Button btn_sync_history, btn_sync_list, btn_sync_user, btn_sync_time,btn_version;
+    private Button btn_sync_history, btn_sync_list, btn_sync_user, btn_sync_time, btn_version;
     private RadioGroup rg_change_unit;
 
-    private TextView tv_age, tv_height, tv_weight, tv_temp, text_view_weight, tv_adc,tv_did;
+    private TextView tv_age, tv_height, tv_weight, tv_temp, text_view_weight, tv_adc, tv_did;
     private SeekBar seek_bar_age, seek_bar_height, seek_bar_weight, seek_bar_adc;
 
     private RadioGroup rg_sex;
@@ -75,7 +75,7 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
     private User user = null;
     private byte unit = AicareBleConfig.UNIT_KG;
 
-    private Button  btn_query_did;
+    private Button btn_query_did;
 
     private FloatingActionButton fab_log;
     private CoordinatorLayout coordinator_layout;
@@ -422,24 +422,22 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
             if (devicesDialog.isShowing()) {
                 devicesDialog.setDevice(broadData);
             }
-            if (cacheBroadData != null && TextUtils.equals(cacheBroadData.getAddress(),
-                    broadData.getAddress())) {
+            if (cacheBroadData != null && TextUtils
+                    .equals(cacheBroadData.getAddress(), broadData.getAddress())) {
                 if (broadData.getDeviceType() == AicareBleConfig.BM_09) {
                     if (broadData.getSpecificData() != null) {
-                        BM09Data data = AicareBleConfig.getBm09Data(broadData.getAddress(),
-                                broadData
-                                .getSpecificData());
+                        BM09Data data = AicareBleConfig
+                                .getBm09Data(broadData.getAddress(), broadData.getSpecificData());
                         if (isNewData(data) && data.getWeight() != 0) {
                             showInfo(data.toString(), false);
-                            tv_did.setText("DID:"+data.getDid());
+                            tv_did.setText("DID:" + data.getDid());
                         }
                     }
                 } else if (broadData.getDeviceType() == AicareBleConfig.BM_15) {
                     if (broadData.getSpecificData() != null) {
                         rg_change_unit.setOnCheckedChangeListener(null);
-                        BM15Data data = AicareBleConfig.getBm15Data(broadData.getAddress(),
-                                broadData
-                                .getSpecificData());
+                        BM15Data data = AicareBleConfig
+                                .getBm15Data(broadData.getAddress(), broadData.getSpecificData());
                         WeightData weightData = new WeightData();
                         weightData.setAdc(data.getAdc());
                         weightData.setCmdType(data.getAgreementType());
@@ -460,7 +458,6 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
                                 rg_change_unit.check(R.id.rb_st);
                                 weightData.setDecimalInfo(new DecimalInfo(1, 1, 1, 1, 1, 2));
                                 break;
-                                //2019-10-31修改分度
                             case 4:
                                 unit = AicareBleConfig.UNIT_KG;
                                 rg_change_unit.check(R.id.rb_kg);
@@ -482,13 +479,13 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
                         onGetWeightData(weightData);
 
                         if (isNewData(data) && data.getWeight() != 0) {
-                            tv_did.setText("DID:"+data.getDid());
+                            tv_did.setText("DID:" + data.getDid());
                         }
                     }
                 } else {
                     if (broadData.getSpecificData() != null) {
-                        WeightData weightData =
-                                AicareBleConfig.getWeightData(broadData.getSpecificData());
+                        WeightData weightData = AicareBleConfig
+                                .getWeightData(broadData.getSpecificData());
                         onGetWeightData(weightData);
                     }
                 }
@@ -510,7 +507,6 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
         }
         return false;
     }
-
 
 
     private BM15Data mBM15Data;
@@ -560,8 +556,10 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
 
     @Override
     public void connect(BroadData device) {
-        if (device.getDeviceType() == AicareBleConfig.TYPE_WEI_BROAD || device.getDeviceType() == AicareBleConfig.TYPE_WEI_TEMP_BROAD || device
-                .getDeviceType() == AicareBleConfig.BM_09 || device.getDeviceType() == AicareBleConfig.BM_15) {
+        if (device.getDeviceType() == AicareBleConfig.TYPE_WEI_BROAD || device
+                .getDeviceType() == AicareBleConfig.TYPE_WEI_TEMP_BROAD || device
+                .getDeviceType() == AicareBleConfig.BM_09 || device
+                .getDeviceType() == AicareBleConfig.BM_15) {
             cacheBroadData = device;
             showInfo(getString(R.string.state_bound, device.getAddress()), true);
             setStateTitle(device.getAddress(), -1);
@@ -637,8 +635,8 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
     public void onGetWeightData(final WeightData weightData) {
         if (weightData == null)
             return;
-        setWeighDataText(AicareBleConfig.getWeight(weightData.getWeight(), unit,
-                weightData.getDecimalInfo()));
+        setWeighDataText(AicareBleConfig
+                .getWeight(weightData.getWeight(), unit, weightData.getDecimalInfo()));
         if (weightData.getTemp() != Double.MAX_VALUE) {
             tv_temp.setText(getString(R.string.temp, String.valueOf(weightData.getTemp())));
         }
@@ -649,9 +647,9 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
             }
             if (weightData.getCmdType() == 3 && weightData.getAdc() > 0 && isNewBM15TestData) {
                 isNewBM15TestData = false;
-                BodyFatData bm15BodyFatData = AicareBleConfig.getBM15BodyFatData(weightData,
-                        user.getSex(), user
-                        .getAge(), user.getHeight());
+                BodyFatData bm15BodyFatData = AicareBleConfig
+                        .getBM15BodyFatData(weightData, user.getSex(), user.getAge(), user
+                                .getHeight());
                 showInfo(bm15BodyFatData.toString(), true);
             }
         }
@@ -791,9 +789,9 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
             showInfo(getString(R.string.history_data, bodyFatData.toString()), true);
         } else {
             showInfo(getString(R.string.body_fat_data, bodyFatData.toString()), true);
-            seek_bar_weight.setProgress((int) (Double
-                    .valueOf(AicareBleConfig.getWeight(bodyFatData.getWeight(), AicareBleConfig.UNIT_KG, bodyFatData
-                    .getDecimalInfo())) * 10));
+            seek_bar_weight.setProgress((int) (Double.valueOf(AicareBleConfig
+                    .getWeight(bodyFatData.getWeight(), AicareBleConfig.UNIT_KG, bodyFatData
+                            .getDecimalInfo())) * 10));
             if (bodyFatData.getAdc() != 0) {
                 seek_bar_adc.setProgress(bodyFatData.getAdc());
             }
@@ -816,30 +814,33 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
     @Override
     public void onGetDID(int did) {
         showInfo(getString(R.string.did, did), true);
-        tv_did.setText("DID:"+did);
+        tv_did.setText("DID:" + did);
     }
 
     @Override
     protected void onGetDecimalInfo(DecimalInfo decimalInfo) {
-        if (decimalInfo == null) return;
+        if (decimalInfo == null)
+            return;
         L.e(TAG, decimalInfo.toString());
-        String decimalStr = (getString(R.string.source_decimal, decimalInfo.getSourceDecimal()))
-                + (getString(R.string.kg_decimal, decimalInfo.getKgDecimal()))
-                + (getString(R.string.lb_decimal, decimalInfo.getLbDecimal()))
-                + (getString(R.string.st_decimal, decimalInfo.getStDecimal()))
-                + (getString(R.string.kg_graduation, decimalInfo.getKgGraduation()))
-                + (getString(R.string.lb_graduation, decimalInfo.getLbGraduation()));
+        String decimalStr = (getString(R.string.source_decimal, decimalInfo
+                .getSourceDecimal())) + (getString(R.string.kg_decimal, decimalInfo
+                .getKgDecimal())) + (getString(R.string.lb_decimal, decimalInfo
+                .getLbDecimal())) + (getString(R.string.st_decimal, decimalInfo
+                .getStDecimal())) + (getString(R.string.kg_graduation, decimalInfo
+                .getKgGraduation())) + (getString(R.string.lb_graduation, decimalInfo
+                .getLbGraduation()));
         showInfo(decimalStr, true);
     }
 
     @Override
     protected void onGetAlgorithmInfo(AlgorithmInfo algorithmInfo) {
-        if (algorithmInfo == null) return;
-        String algorithmStr = (getString(R.string.adc, String.valueOf(algorithmInfo.getAdc()))
-                + (getString(R.string.algorithm_id, algorithmInfo.getAlgorithmId())));
+        if (algorithmInfo == null)
+            return;
+        String algorithmStr = (getString(R.string.adc, String
+                .valueOf(algorithmInfo.getAdc())) + (getString(R.string.algorithm_id, algorithmInfo
+                .getAlgorithmId())));
         showInfo(algorithmStr, true);
     }
-
 
 
     private void showSnackBar(String info) {
@@ -848,14 +849,11 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
     }
 
 
-
-    /**
-     * 初始化请求权限
-     */
     private void initPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+            ActivityCompat
+                    .requestPermissions(this,
+                            new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
         }
     }
 
@@ -871,17 +869,14 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
         } else {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0])) {
-                //权限请求失败，但未选中“不再提示”选项
-                new AlertDialog.Builder(this).setTitle(R.string.tips)
-                        .setMessage(R.string.tips_hint)
+                new AlertDialog.Builder(this).setTitle(R.string.tips).setMessage(R.string.tips_hint)
                         .setPositiveButton(R.string.query, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //引导用户至设置页手动授权
                                 Intent intent =
                                         new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                Uri uri = Uri.fromParts("package",
-                                        getApplicationContext().getPackageName(), null);
+                                Uri uri = Uri.fromParts("package", getApplicationContext()
+                                        .getPackageName(), null);
                                 intent.setData(uri);
                                 startActivity(intent);
                             }
@@ -894,21 +889,16 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
                                 }
 
                             }
-                        })
-                        .show();
+                        }).show();
             } else {
-                //权限请求失败，选中“不再提示”选项
-//                T.showShort(MainActivity.this, "获取权限失败");
-                new AlertDialog.Builder(this).setTitle(R.string.tips)
-                        .setMessage(R.string.tips_hint)
+                new AlertDialog.Builder(this).setTitle(R.string.tips).setMessage(R.string.tips_hint)
                         .setPositiveButton(R.string.query, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //引导用户至设置页手动授权
                                 Intent intent =
                                         new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                Uri uri = Uri.fromParts("package",
-                                        getApplicationContext().getPackageName(), null);
+                                Uri uri = Uri.fromParts("package", getApplicationContext()
+                                        .getPackageName(), null);
                                 intent.setData(uri);
                                 startActivity(intent);
                             }
@@ -921,8 +911,7 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
                                 }
 
                             }
-                        })
-                        .show();
+                        }).show();
             }
 
         }
