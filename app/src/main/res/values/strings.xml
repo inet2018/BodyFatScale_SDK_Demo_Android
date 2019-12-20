@@ -3,7 +3,7 @@
 
     <string name="scanner_action_scan">Scan</string>
     <string name="scanner_title">Select device:</string>
-    <string name="scanner_action_cancel">Cancel</string>
+    <string name="scanner_action_cancel">Quit</string>
     <string name="scanner_empty">No device</string>
     <string name="not_available">n/a</string>
 
@@ -12,6 +12,7 @@
     <string name="not_support_ble">Phone does not support ble！</string>
 
     <string name="sync_user">Sync User</string>
+    <string name="sync_record">Sync Record</string>
 
     <string name="unit_kg">kg</string>
     <string name="unit_lb">lb</string>
@@ -50,12 +51,10 @@
     <string name="adc_measured_ind">Impedance measurement&#8230;</string>
     <string name="adc_error">Impedance measurement failed.</string>
     <string name="source_decimal">Source data decimal digit: %d</string>
-    <string name="kg_decimal">\nKg decimal digit: %d</string>
-    <string name="lb_decimal">\nLb decimal digit: %d</string>
-    <string name="st_decimal">\nSt decimal digit: %d</string>
-    <string name="kg_graduation">\nkg division: %d</string>
-    <string name="lb_graduation">\nlb division: %d</string>
-    <string name="algorithm_id">\nAlgorithm ID: %d</string>
+    <string name="kg_decimal">Kg decimal digit: %d</string>
+    <string name="lb_decimal">Lb decimal digit: %d</string>
+    <string name="lb_graduation">lb division: %d</string>
+    <string name="algorithm_id">Algorithm ID: %d</string>
 
     <string name="body_fat_data">Body fat data: %s</string>
 
@@ -65,5 +64,45 @@
     <string name="mcu_time">Weighting Time: %s</string>
     <string name="adc">Impedance value: %s</string>
     <string name="light">Light</string>
+    <string name="btn_get_decimal">Get decimal places</string>
+    <string name="clear_log">Clear Log</string>
+    <string name="data_send_end">Measurement data sent</string>
+    <string name="default_DID">DID: &#8212;</string>
+    <string name="did">DID: %1$d</string>
+    <string name="history_data">Historical data:%1$s</string>
+    <string name="history_send_over">Completed sending of historical data</string>
+    <string name="history_start_send">Historical data starts to be sent</string>
+    <string name="no_data">Save failed with no data!</string>
+    <string name="no_history">No historical data</string>
+    <string name="no_match_user">No matching users</string>
+    <string name="query">determine</string>
+    <string name="query_did">Query DID</string>
+    <string name="remove_pregnancy">Normal mode</string>
+    <string name="request_disconnect">Bluetooth request to disconnect</string>
+    <string name="save_failed">Save failed</string>
+    <string name="save_ing">Saving&#8230;</string>
+    <string name="save_ing_progress">Saving&#8230;  %1$d</string>
+    <string name="save_success">Saved successfully, path: File Manager-iWeightDemo-% 1 $ s</string>
+    <string name="set_pregnancy">Maternity Mode</string>
+    <string name="set_time_failed">Setting the time failed</string>
+    <string name="set_time_success">Set time successfully</string>
+    <string name="sync_history">Sync history</string>
+    <string name="sync_list">Sync list</string>
+    <string name="sync_time">synchronised time</string>
+    <string name="unknown">unknown</string>
+    <string name="unstable">Unstable</string>
+    <string name="update_user">Update user</string>
+    <string name="update_user_failed">Update user failed</string>
+    <string name="update_user_list_failed">Update user list failed</string>
+    <string name="update_user_list_success">User list updated successfully</string>
+    <string name="update_user_success">Update user succeeded</string>
+    <string name="get_version">Get version</string>
+    <string name="Setting_mode_succeeded">Setting mode succeeded！</string>
+    <string name="setting_mode_failed">Setting mode failed！</string>
+    <string name="kg_graduation">kg division: %d</string>
+    <string name="st_decimal">St decimal digit: %d</string>
+    <string name="cancel">Cancel</string>
+    <string name="tips">Tips</string>
+    <string name="tips_hint">Request search for Bluetooth devices using location permissions</string>
 
 </resources>

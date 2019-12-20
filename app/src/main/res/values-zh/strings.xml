@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">体脂秤Demo</string>
+
+    <string name="scanner_action_scan">搜索</string>
+    <string name="scanner_title">选择设备:</string>
+    <string name="scanner_action_cancel">退出</string>
+    <string name="scanner_empty">没有发现设备</string>
+    <string name="not_available">n/a</string>
+
+    <string name="start_scan">扫描</string>
+    <string name="disconnect">断开连接</string>
+    <string name="unbound">解绑</string>
+    <string name="not_support_ble">设备不支持BLE！</string>
+
+    <string name="sync_history">同步历史</string>
+    <string name="sync_list">同步列表</string>
+    <string name="sync_user">同步用户</string>
+    <string name="sync_time">同步时间</string>
+    <string name="update_user">更新用户</string>
+    <string name="set_pregnancy">孕妇模式</string>
+    <string name="remove_pregnancy">普通人模式</string>
+
+    <string name="unit_kg">千克</string>
+    <string name="unit_lb">英磅</string>
+    <string name="unit_st">英石</string>
+    <string name="unit_jin">斤</string>
+
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="age">年龄: %1$d</string>
+    <string name="height">身高: %1$d</string>
+    <string name="weight">体重: %1$s</string>
+    <string name="temp">温度: %1$s</string>
+    <string name="default_value">--</string>
+    <string name="default_weight">体重: &#8212;</string>
+    <string name="default_temp">温度: &#8212;</string>
+    <string name="default_DID">DID: &#8212;</string>
+
+    <string name="state_connected">已连接设备: %1$s</string>
+    <string name="state_bound">已绑定设备: %1$s</string>
+    <string name="state_disconnected">已与设备断开连接</string>
+    <string name="state_service_discovered">已发现服务</string>
+    <string name="state_indication_success">使能成功</string>
+    <string name="state_time_out">连接超时</string>
+    <string name="state_connecting">连接中&#8230;</string>
+    <string name="state_error">连接异常, 异常信息: %1$s; 错误码: %2$d</string>
+    <string name="settings_status">状态: %1$s</string>
+    <string name="normal">正常</string>
+    <string name="low_power">低功耗</string>
+    <string name="low_voltage">低电压</string>
+    <string name="error">超载</string>
+    <string name="time_out">超时</string>
+    <string name="unstable">称不稳定</string>
+    <string name="set_unit_success">设置单位成功</string>
+    <string name="set_unit_failed">设置单位失败</string>
+    <string name="set_time_success">设置时间成功</string>
+    <string name="set_time_failed">设置时间失败</string>
+    <string name="set_user_success">设置用户成功</string>
+    <string name="set_user_failed">设置用户失败</string>
+    <string name="update_user_list_success">更新用户列表成功</string>
+    <string name="update_user_list_failed">更新用户列表失败</string>
+    <string name="update_user_success">更新用户成功</string>
+    <string name="update_user_failed">更新用户失败</string>
+    <string name="no_history">没有历史数据</string>
+    <string name="history_start_send">历史数据开始发送</string>
+    <string name="history_send_over">历史数据发送完成</string>
+    <string name="no_match_user">没有匹配的用户</string>
+    <string name="adc_measured_ind">阻抗值测量中</string>
+    <string name="adc_error">阻抗值测量失败</string>
+    <string name="unknown">未知</string>
+    <string name="request_disconnect">蓝牙请求断开</string>
+    <string name="data_send_end">测量数据发送完成</string>
+
+    <string name="body_fat_data">体脂数据: %1$s</string>
+    <string name="history_data">历史数据: %1$s</string>
+
+    <string name="ble_version">BLE版本: %1$s</string>
+    <string name="user_id">用户编号: %1$s</string>
+    <string name="mcu_date">测量日期: %1$s</string>
+    <string name="mcu_time">测量时间: %1$s</string>
+    <string name="adc">阻抗: %1$s</string>
+    <string name="did">DID: %1$d</string>
+
+    <string name="clear_log">清空Log</string>
+    <string name="btn_get_decimal">获取小数位数</string>
+
+    <string name="get_version">获取版本</string>
+
+    <string name="query_did">查询DID</string>
+
+    <string name="no_data">保存失败，没有数据！</string>
+    <string name="save_failed">保存失败</string>
+    <string name="save_ing">正在保存&#8230;</string>
+    <string name="save_ing_progress">正在保存&#8230;  %1$d</string>
+    <string name="save_success">保存成功，路径：\n文件管理器-iWeightDemo-%1$s</string>
+    <string name="query">确定</string>
+    <string name="Setting_mode_succeeded">设置模式成功！</string>
+    <string name="setting_mode_failed">设置模式失败！</string>
+    <string name="algorithm_id">算法ID: %d</string>
+    <string name="kg_decimal">Kg小数位: %d</string>
+    <string name="kg_graduation"> kg分度: %d</string>
+    <string name="lb_decimal">Lb 小数位: %d</string>
+    <string name="lb_graduation">lb 分度: %d</string>
+    <string name="light">亮</string>
+    <string name="st_decimal">St 小数位: %d</string>
+    <string name="source_decimal">源数据小数位数: %d</string>
+    <string name="sync_record">同步记录</string>
+    <string name="cancel">取消</string>
+    <string name="tips">提示</string>
+    <string name="tips_hint">请求使用定位权限搜索蓝牙设备</string>
+</resources>
