@@ -183,19 +183,19 @@ The following methods or interfaces are automatically obtained directly after in
 ```
 Note: Some of these interfaces or methods require APP to issue commands to body fat to return data.
 
-## 7 调用SDK中的算法计算数据
-在AicareBleConfig中包含有体脂数据相关的算法可供调用
+## 7 Call the algorithm to calculate the data in the SDK
+AicareBleConfig contains algorithms related to body fat data that can be called
 ```
-如果设备返回阻抗,没有体脂数据可以调用getBodyFatData方法计算,通过 BodyFatData 对象中的数据调用算法得到cn.net.aicare.algorithmutil.BodyFatData
-如下:
-AicareBleConfig.getBodyFatData(AlgorithmUtil.AlgorithmType.TYPE_AIC
-ARE, bodyFatData.getSex(), bodyFatData.getAge(),
-Double.valueOf(ParseData.getKgWeight(bodyFatData.getWeight(),
-bodyFatData.getDecimalInfo())), bodyFatData .getHeight(),
-bodyFatData.getAdc());
+If the device returns impedance, there is no body fat data that can be calculated by calling the getBodyFatData method, and the algorithm can be obtained by calling the algorithm on the data in the BodyFatData object.
+as follows:
+AicareBleConfig.getBodyFatData (AlgorithmUtil.AlgorithmType.TYPE_AIC
+ARE, bodyFatData.getSex (), bodyFatData.getAge (),
+Double.valueOf (ParseData.getKgWeight (bodyFatData.getWeight (),
+bodyFatData.getDecimalInfo ())), bodyFatData .getHeight (),
+bodyFatData.getAdc ());
 
-如需要获取去脂体重，体重控制量等额外的 6 项身体指标，请调用getMoreFatData计算得到 MoreFatData 对象
-AicareBleConfig.getMoreFatData(int sex, int height, double weight,
+If you need to obtain 6 additional physical indicators such as fat-free weight and weight control, please call getMoreFatData to get a MoreFatData object.
+AicareBleConfig.getMoreFatData (int sex, int height, double weight,
 double bfr, double rom, double pp)
 
 ```
