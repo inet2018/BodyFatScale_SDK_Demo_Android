@@ -801,6 +801,8 @@ public class MyActivity extends BleProfileServiceReadyActivity implements Device
                 handler.postDelayed(updateRunnable, 50);
             }
         }
+
+
     }
 
     private Runnable updateRunnable = new Runnable() {

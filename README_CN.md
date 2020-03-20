@@ -43,7 +43,7 @@ repositories {
 你可以直接让你自己的`Activity`类继承`BleProfileServiceReadyActivity`
 
 ```
-public class MyActivity extends BleProfileServiceReadyActivity 
+public class MyActivity extends BleProfileServiceReadyActivity
 
 ```
 
@@ -51,7 +51,7 @@ public class MyActivity extends BleProfileServiceReadyActivity
       @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //判断手机设备是否支持Ble    
+        //判断手机设备是否支持Ble
         if (!ensureBLESupported()) {
             T.showShort(this, R.string.not_support_ble);
             finish();
@@ -63,9 +63,9 @@ public class MyActivity extends BleProfileServiceReadyActivity
             showBLEDialog();
         }
     }
- 
-    
-```    
+
+
+```
 
 ## 四、扫描设备，停止扫描设备,查看扫描状态
 与扫描相关的API如下，详情参考BleProfileServiceReadyActivity类，具体使用参考sample工程
@@ -77,14 +77,14 @@ public class MyActivity extends BleProfileServiceReadyActivity
     @Override
     protected void getAicareDevice(BroadData broadData) {
                //符合Aicare协议的体脂秤设备
-               
-      
+
+
     }
 //调用stopScan方法停止扫描 该方便不建议客户自己调用
  stopScan();
 //调用isScanning方法查看是否在扫描 true:正在扫描; false:已停止扫描
  isScanning();
- 
+
 ```
 > 注意： 如果为广播秤，不需要去执行连接操作，在扫描的回调getAicareDevice(BroadData broadData)方法中可以直接去获取到体脂数据,广播秤调用 stopScan()回获取不到数据
 
@@ -105,13 +105,13 @@ public class MyActivity extends BleProfileServiceReadyActivity
                   if (broadData.getSpecificData() != null) {
                         WeightData weightData =
                                 AicareBleConfig.getWeightData(broadData.getSpecificData());
-                        
+
                     }
            }
-           
+
     }
 ```
-      
+
 
 ## 五、连接设备，断开设备
 
@@ -142,15 +142,15 @@ startConnect(String address)
     @Override
     protected void onServiceBinded(WBYService.WBYBinder binder) {
         this.binder = binder;
-      
+
    }
- //设备返回的变化和稳定的体重数据和温度(AC03才支持)  
+ //设备返回的变化和稳定的体重数据和温度(AC03才支持)
     @Override
     protected void onGetWeightData(WeightData weightData) {
          //如果想要在这里获取到广播秤数据。需要在getAicareDevice(final BroadData broadData)方法中
          //调用onGetWeightData(WeightData weightData)去把数据透传过来
-         
-         
+
+
     }
 //onGetSettingStatus方法中获得设置状态 详情查看AicareBleConfig.SettingStatus
     @Override
@@ -160,10 +160,10 @@ startConnect(String address)
 //onGetResul方法中获得获得版本号，测量时间，用户编号，阻抗值
     @Override
     protected void onGetResult(int index, String result) {
-          
-          
+
+
     }
-// 获得设备返回据历史数据或体脂数据  true为历史数据 
+// 获得设备返回据历史数据或体脂数据  true为历史数据
     @Override
     protected void onGetFatData(boolean isHistory, BodyFatData bodyFatData) {
 
@@ -178,27 +178,42 @@ startConnect(String address)
     protected void onGetAlgorithmInfo(AlgorithmInfo algorithmInfo) {
 
     }
-    
+
 
 ```
 > 注意：这些接口或方法部分需要APP给体脂下发命令才会有返回数据.
 
+## 七 调用SDK中的算法计算数据
+在AicareBleConfig中包含有体脂数据相关的算法可供调用
+```
+如果设备返回阻抗,没有体脂数据可以调用getBodyFatData方法计算,通过 BodyFatData 对象中的数据调用算法得到cn.net.aicare.algorithmutil.BodyFatData
+如下:
+AicareBleConfig.getBodyFatData(AlgorithmUtil.AlgorithmType.TYPE_AIC
+ARE, bodyFatData.getSex(), bodyFatData.getAge(),
+Double.valueOf(ParseData.getKgWeight(bodyFatData.getWeight(),
+bodyFatData.getDecimalInfo())), bodyFatData .getHeight(),
+bodyFatData.getAdc());
 
+如需要获取去脂体重，体重控制量等额外的 6 项身体指标，请调用getMoreFatData计算得到 MoreFatData 对象
+AicareBleConfig.getMoreFatData(int sex, int height, double weight,
+double bfr, double rom, double pp)
 
-## 七 给设备下发指令
+```
+
+## 八 给设备下发指令
 在BleProfileServiceReadyActivity.onServiceBinded(WBYService.WBYBinder binder)获得WBYService.WBYBinder的实例，调用binder里面方法
 
 ```
     @Override
     protected void onServiceBinded(WBYService.WBYBinder binder) {
         this.binder = binder;
-      
-   } 
+
+   }
    //如获取到历史记录
       binder.syncHistory();
-      
-      
-      
+
+
+
    //WBYBinder的部分方法
    public class WBYBinder extends LocalBinder {
 
@@ -312,13 +327,13 @@ startConnect(String address)
         public void getDecimalInfo() {
             mManager.getDecimalInfo();
         }
-        
+
 }
-    
+
 ```
 
 
-## 八 类说明
+## 九 类说明
 
 //aicare.net.cn.iweightlibrary.entity
 
@@ -428,8 +443,41 @@ int	algorithmType	算法ID
 int	unitType	单位类型
 int	deviceType	设备类型
 ```
-####9.BleProfileService 连接状态
-```   
+####9.cn.net.aicare.algorithmutil.BodyFatData(计算得到的体脂数据)
+```
+类型	参数名	说明
+double bmi;	身体质量指数
+double bfr;	体脂率 body fat rate
+double sfr;	皮下脂肪率 Subcutaneous fat rate
+int uvi;	内脏脂肪指数
+double rom; 肌肉率 Rate of muscle
+int bmr; 基础代谢率 basal metabolic rate
+double bm; 骨骼质量 Bone Mass
+double vwc; 水含量
+int bodyAge; 身体年龄 physical bodyAge
+double pp; 蛋白率 protein percentage
+```
+
+####10.MoreFatData
+```
+类型	参数名	说明
+double standardWeight;	标准体重
+double controlWeight;	体重控制量
+double fat;	脂肪量
+double removeFatWeight;	去脂体重
+double muscleMass; 肌肉量
+double protein; 蛋白量
+MoreFatData.FatLevel fatLevel; 肥胖等级
+public static enum FatLevel {
+        UNDER,
+        THIN,
+        NORMAL,
+        OVER,
+        FAT;
+}
+```
+####11.BleProfileService 连接状态
+```
 public static final int STATE_CONNECTING = 4; //连接中
 public static final int STATE_DISCONNECTED = 0; //断开连接
 public static final int STATE_CONNECTED = 1;//连接成功
@@ -437,8 +485,8 @@ public static final int STATE_SERVICES_DISCOVERED = 2;//发现服务
 public static final int STATE_INDICATION_SUCCESS = 3;//使能成功
 public static final int STATE_TIME_OUT = 5;//连接超时
 ```
-####10.AicareBleConfig.SettingStatus 设备返回的状态信息
-``` 
+####12.AicareBleConfig.SettingStatus 设备返回的状态信息
+```
         int NORMAL = 0;//正常
         int LOW_POWER = 1;//低功耗
         int LOW_VOLTAGE = 2;//低电压
@@ -466,12 +514,12 @@ public static final int STATE_TIME_OUT = 5;//连接超时
         int SET_DID_FAILED = 24;//设置DID失败
         int DATA_SEND_END = 25;//测量数据发送完成
         int UNKNOWN = -1;//未知
-``` 
-####11.WBYService 设备返回的蓝牙信息
-```   
+```
+####13.WBYService 设备返回的蓝牙信息
+```
     public final static int BLE_VERSION = 0; //蓝牙版本
     public final static int MCU_DATE = 1;  //mcu日期
     public final static int MCU_TIME = 2;  //mcu 时间
     public final static int USER_ID = 3; //用户编号
     public final static int ADC = 4; //阻抗值
-```       
+```

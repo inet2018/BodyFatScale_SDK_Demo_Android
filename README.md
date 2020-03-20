@@ -163,6 +163,7 @@ The following methods or interfaces are automatically obtained directly after in
           
     }
 // Get the device to return historical data or body fat data. True is historical data.
+//Body fat data will only be generated after the current user is synchronized after STATE_INDICATION_SUCCESS
     @Override
     protected void onGetFatData (boolean isHistory, BodyFatData bodyFatData) {
 
@@ -182,8 +183,24 @@ The following methods or interfaces are automatically obtained directly after in
 ```
 Note: Some of these interfaces or methods require APP to issue commands to body fat to return data.
 
+## 7 调用SDK中的算法计算数据
+在AicareBleConfig中包含有体脂数据相关的算法可供调用
+```
+如果设备返回阻抗,没有体脂数据可以调用getBodyFatData方法计算,通过 BodyFatData 对象中的数据调用算法得到cn.net.aicare.algorithmutil.BodyFatData
+如下:
+AicareBleConfig.getBodyFatData(AlgorithmUtil.AlgorithmType.TYPE_AIC
+ARE, bodyFatData.getSex(), bodyFatData.getAge(),
+Double.valueOf(ParseData.getKgWeight(bodyFatData.getWeight(),
+bodyFatData.getDecimalInfo())), bodyFatData .getHeight(),
+bodyFatData.getAdc());
 
-## 7 Give instructions to the device
+如需要获取去脂体重，体重控制量等额外的 6 项身体指标，请调用getMoreFatData计算得到 MoreFatData 对象
+AicareBleConfig.getMoreFatData(int sex, int height, double weight,
+double bfr, double rom, double pp)
+
+```
+
+## 8 Give instructions to the device
 Get an instance of WBYService.WBYBinder in BleProfileServiceReadyActivity.onServiceBinded (WBYService.WBYBinder binder), and call the method in binder
 
 ```
@@ -316,7 +333,7 @@ Get an instance of WBYService.WBYBinder in BleProfileServiceReadyActivity.onServ
     
 ```
 
-## 8 Class description
+## 9 Class description
 
 //aicare.net.cn.iweightlibrary.entity:
 
@@ -427,8 +444,40 @@ int algorithmType // algorithm ID
 int unitType 
 int deviceType //device type
 ```
+####9.cn.net.aicare.algorithmutil.BodyFatData(Calculated body fat data)
+```
+Type Parameter name Description
+double bmi;	Body mass index
+double bfr;	 body fat rate
+double sfr;	 Subcutaneous fat rate
+int uvi;	Visceral fat index
+double rom;  Rate of muscle
+int bmr;  basal metabolic rate
+double bm;  Bone Mass
+double vwc; Water content
+int bodyAge;  physical bodyAge
+double pp;  protein percentage
+```
 
-#### 9.BleProfileService Connection Status
+####10.MoreFatData
+```
+Type Parameter name Description
+double standardWeight;	Standard weight
+double controlWeight;	Weight control
+double fat;	Fat mass
+double removeFatWeight;	Fat-free weight
+double muscleMass; Muscle mass
+double protein; Protein amount
+MoreFatData.FatLevel fatLevel; Obesity grade
+public static enum FatLevel {
+        UNDER,
+        THIN,
+        NORMAL,
+        OVER,
+        FAT;
+}
+```
+#### 11.BleProfileService Connection Status
 ```
 public static final int STATE_CONNECTING = 4; // connecting
 public static final int STATE_DISCONNECTED = 0; // disconnect
@@ -437,7 +486,7 @@ public static final int STATE_SERVICES_DISCOVERED = 2; // Discover services
 public static final int STATE_INDICATION_SUCCESS = 3; // Enable success
 public static final int STATE_TIME_OUT = 5; // connection timed out
 ```
-#### 10.AicareBleConfig.SettingStatus Status information returned by the device
+#### 12.AicareBleConfig.SettingStatus Status information returned by the device
 ```
         int NORMAL = 0; // Normal
         int LOW_POWER = 1; // Low power
@@ -467,7 +516,7 @@ public static final int STATE_TIME_OUT = 5; // connection timed out
         int DATA_SEND_END = 25; // Measured data transmission is complete
         int UNKNOWN = -1; // unknown
 ```
-#### 11.WBYService Bluetooth information returned by the device
+#### 13.WBYService Bluetooth information returned by the device
 ```
     public final static int BLE_VERSION = 0; // Bluetooth version
     public final static int MCU_DATE = 1; // mcu date

@@ -7,8 +7,8 @@ android {
         applicationId "aicare.net.cn.sdk.iweightdemo"
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 3
-        versionName "1.2.0"
+        versionCode 4
+        versionName "1.2.1"
     }
     buildTypes {
         release {
