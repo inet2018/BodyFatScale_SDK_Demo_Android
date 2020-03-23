@@ -470,11 +470,11 @@ double muscleMass; Muscle mass
 double protein; Protein amount
 MoreFatData.FatLevel fatLevel; Obesity grade
 public static enum FatLevel {
-        UNDER,
-        THIN,
-        NORMAL,
-        OVER,
-        FAT;
+        UNDER,  Underweight
+        THIN,   Thin
+        NORMAL,  standard
+        OVER,  Favor
+        FAT;  overweight
 }
 ```
 #### 11.BleProfileService Connection Status

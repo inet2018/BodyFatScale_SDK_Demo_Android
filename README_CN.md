@@ -469,11 +469,11 @@ double muscleMass; 肌肉量
 double protein; 蛋白量
 MoreFatData.FatLevel fatLevel; 肥胖等级
 public static enum FatLevel {
-        UNDER,
-        THIN,
-        NORMAL,
-        OVER,
-        FAT;
+        UNDER,  体重不足
+        THIN,   偏瘦
+        NORMAL,  标准
+        OVER,  偏重
+        FAT;  超重
 }
 ```
 ####11.BleProfileService 连接状态
