@@ -1,11 +1,13 @@
 # Body fat scale SDK Instructions - Android 
 
+[![](https://jitpack.io/v/inet2018/BodyFatScaleRepositoryAndroid.svg)](https://jitpack.io/#inet2018/BodyFatScaleRepositoryAndroid)
+
 [中文文档](README_CN.md)
 
 This document is a guide for Android developers to integrate good figure-SDK-Android in Android 4.4 and above systems, mainly for some key usage examples
 
 ## 1 Import SDK
-Import the demo libs file content into the project, generally copy it to the target project's libs directory, and then set it as follows in build.gradle in the module:
+
 
 ```
 repositories {
@@ -13,6 +15,25 @@ repositories {
         dirs 'libs'
     }
 }
+
+
+Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+Step 2. Add the dependency
+	dependencies {
+	        implementation 'com.github.inet2018:BodyFatScaleRepositoryAndroid:1.2.1'
+	}
+
+
+You can also use aar package dependency,
+download link:https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases
 
 
 ```

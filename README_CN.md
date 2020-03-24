@@ -1,12 +1,14 @@
 
 # 蓝牙体脂秤SDK使用说明 - Android
 
+[![](https://jitpack.io/v/inet2018/BodyFatScaleRepositoryAndroid.svg)](https://jitpack.io/#inet2018/BodyFatScaleRepositoryAndroid)
+
 [English documentation](README.md)
 
 该文档为指导Android开发人员在Android 4.4及以上系统中集成好身材-SDK-Android，主要为一些关键的使用示例
 
 ## 一、导入SDK
-将demo libs文件内容导入工程，一般复制到目标项目libs目录下，然后在module中的build.gradle中如下设置：
+
 
 ```
 repositories {
@@ -14,6 +16,26 @@ repositories {
         dirs 'libs'
     }
 }
+
+
+步骤1.将JitPack存储库添加到您的构建文件中
+将其添加到存储库末尾的root build.gradle中：
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+步骤2.添加依赖项
+	dependencies {
+	        implementation 'com.github.inet2018:BodyFatScaleRepositoryAndroid:1.2.1'
+	}
+
+
+也可以使用aar包依赖,
+下载地址:https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases
+
 
 ```
 
