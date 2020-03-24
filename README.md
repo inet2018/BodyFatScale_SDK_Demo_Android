@@ -33,7 +33,8 @@ Step 2. Add the dependency
 
 
 You can also use aar package dependency,
-download link:https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases
+[download link](https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases)
+
 
 
 ```

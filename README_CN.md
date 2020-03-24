@@ -34,7 +34,7 @@ repositories {
 
 
 也可以使用aar包依赖,
-下载地址:https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases
+[下载地址](https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases)
 
 
 ```
