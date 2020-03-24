@@ -25,7 +25,7 @@ allprojects {
         
 Step 2. Add the dependency
 dependencies {
-	        implementation 'com.github.inet2018:BodyFatScaleRepositoryAndroid:Tag'
+	        implementation 'com.github.inet2018:BodyFatScaleRepositoryAndroid:1.2.1'
 	}
 ```
 
