@@ -337,7 +337,7 @@ double bfr, double rom, double pp)
 
 //aicare.net.cn.iweightlibrary.entity
 
-####1.AlgorithmInfo(算法序列信息)
+#### 1.AlgorithmInfo(算法序列信息)
 ```
 类型	参数名	说明
 double	weight	体重
@@ -346,7 +346,7 @@ int	adc	阻抗值
 DecimalInfo	decimalInfo	小数点位数
 ```
 
-####2.BM09Data(BM09数据)
+#### 2.BM09Data(BM09数据)
 ```
 类型	参数名	说明
 int	agreementType	协议类型
@@ -363,7 +363,7 @@ String	address	设备地址
 long	timeMillis	测量时间戳
 boolean	isStable	是否稳定
 ```
-####3.BM15Data(BM15数据)
+#### 3.BM15Data(BM15数据)
 ```
 类型	参数名	说明
 String	version	蓝牙版本
@@ -378,7 +378,7 @@ int	bleType	蓝牙类型（0x15）
 String	address	设备地址
 ```
 
-####4.BodyFatData(体脂数据)
+#### 4.BodyFatData(体脂数据)
 ```
 类型	参数名	说明
 String	date	测量日期
@@ -401,7 +401,7 @@ int	height	身高
 int	adc	阻抗值
 ```
 
-####5.BroadData(广播数据)
+#### 5.BroadData(广播数据)
 ```
 类型	参数名	说明
 String	name	设备名
@@ -411,7 +411,7 @@ int	rssi	信号值
 byte[]	specificData	广播数据
 int	deviceType	设备类型
 ```
-####6.DecimalInfo(小数点位数信息)
+#### 6.DecimalInfo(小数点位数信息)
 ```
 类型	参数名	说明
 int	sourceDecimal	源数据小数点位数
@@ -421,7 +421,7 @@ int	stDecimal	st小数点位数
 int	kgGraduation	kg分度
 int	lbGraduation	lb分度
 ```
-####7.User(用户信息)
+#### 7.User(用户信息)
 ```
 类型	参数名	说明
 int	id	编号
@@ -431,7 +431,7 @@ int	height	身高
 int	weight	体重
 int	adc	阻抗值（弃用）
 ```
-####8.WeightData(体重数据)
+#### 8.WeightData(体重数据)
 ```
 类型	参数名	说明
 int	cmdType	命令类型（1、变化；2、稳定；3、阻抗测量中）
@@ -443,7 +443,7 @@ int	algorithmType	算法ID
 int	unitType	单位类型
 int	deviceType	设备类型
 ```
-####9.cn.net.aicare.algorithmutil.BodyFatData(计算得到的体脂数据)
+#### 9.cn.net.aicare.algorithmutil.BodyFatData(计算得到的体脂数据)
 ```
 类型	参数名	说明
 double bmi;	身体质量指数
@@ -458,7 +458,7 @@ int bodyAge; 身体年龄 physical bodyAge
 double pp; 蛋白率 protein percentage
 ```
 
-####10.MoreFatData
+#### 10.MoreFatData
 ```
 类型	参数名	说明
 double standardWeight;	标准体重
@@ -476,7 +476,7 @@ public static enum FatLevel {
         FAT;  超重
 }
 ```
-####11.BleProfileService 连接状态
+#### 11.BleProfileService 连接状态
 ```
 public static final int STATE_CONNECTING = 4; //连接中
 public static final int STATE_DISCONNECTED = 0; //断开连接
@@ -485,7 +485,7 @@ public static final int STATE_SERVICES_DISCOVERED = 2;//发现服务
 public static final int STATE_INDICATION_SUCCESS = 3;//使能成功
 public static final int STATE_TIME_OUT = 5;//连接超时
 ```
-####12.AicareBleConfig.SettingStatus 设备返回的状态信息
+#### 12.AicareBleConfig.SettingStatus 设备返回的状态信息
 ```
         int NORMAL = 0;//正常
         int LOW_POWER = 1;//低功耗
@@ -515,7 +515,7 @@ public static final int STATE_TIME_OUT = 5;//连接超时
         int DATA_SEND_END = 25;//测量数据发送完成
         int UNKNOWN = -1;//未知
 ```
-####13.WBYService 设备返回的蓝牙信息
+#### 13.WBYService 设备返回的蓝牙信息
 ```
     public final static int BLE_VERSION = 0; //蓝牙版本
     public final static int MCU_DATE = 1;  //mcu日期

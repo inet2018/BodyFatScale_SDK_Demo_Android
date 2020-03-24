@@ -444,7 +444,7 @@ int algorithmType // algorithm ID
 int unitType 
 int deviceType //device type
 ```
-####9.cn.net.aicare.algorithmutil.BodyFatData(Calculated body fat data)
+#### 9.cn.net.aicare.algorithmutil.BodyFatData(Calculated body fat data)
 ```
 Type Parameter name Description
 double bmi;	Body mass index
@@ -459,7 +459,7 @@ int bodyAge;  physical bodyAge
 double pp;  protein percentage
 ```
 
-####10.MoreFatData
+#### 10.MoreFatData
 ```
 Type Parameter name Description
 double standardWeight;	Standard weight
