@@ -2,6 +2,8 @@
 
 [![](https://jitpack.io/v/inet2018/BodyFatScaleRepositoryAndroid.svg)](https://jitpack.io/#inet2018/BodyFatScaleRepositoryAndroid)
 
+[aar package download link](https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases)
+
 [中文文档](README_CN.md)
 
 This document is a guide for Android developers to integrate good figure-SDK-Android in Android 4.4 and above systems, mainly for some key usage examples
@@ -32,8 +34,8 @@ Step 2. Add the dependency
 	}
 
 
-You can also use aar package dependency,
-[download link](https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases)
+You can also use aar package dependency,Please download it into the project's libs yourself
+
 
 
 

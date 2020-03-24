@@ -3,6 +3,8 @@
 
 [![](https://jitpack.io/v/inet2018/BodyFatScaleRepositoryAndroid.svg)](https://jitpack.io/#inet2018/BodyFatScaleRepositoryAndroid)
 
+[aar包下载地址](https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases)
+
 [English documentation](README.md)
 
 该文档为指导Android开发人员在Android 4.4及以上系统中集成好身材-SDK-Android，主要为一些关键的使用示例
@@ -33,8 +35,8 @@ repositories {
 	}
 
 
-也可以使用aar包依赖,
-[下载地址](https://github.com/inet2018/BodyFatScale_SDK_Demo_Android/releases)
+也可以使用aar包依赖,请自行下载放到项目的libs中
+
 
 
 ```
