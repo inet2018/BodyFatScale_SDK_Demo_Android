@@ -31,7 +31,7 @@ repositories {
 
 步骤2.添加依赖项
 	dependencies {
-	        implementation 'com.github.inet2018:BodyFatScaleRepositoryAndroid:1.2.1'
+	        implementation 'com.github.inet2018:BodyFatScaleRepositoryAndroid:1.2.2'
 	}
 
 
