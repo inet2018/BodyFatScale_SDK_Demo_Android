@@ -62,7 +62,21 @@ You can also use aar package dependency,Please download it into the project's li
 
 > 6.0 and above systems need to locate permissions and need to obtain permissions manually
 
-## 3 initialization
+## 3 start integration
+
+> Add below AndroidManifest.xml application tag
+```
+<application>
+    ...
+
+    <service android:name="aicare.net.cn.iweightlibrary.wby.WBYService"/>
+
+</application>
+
+```
+
+
+> initialization
 
 You can directly make your own `Activity` class extend` BleProfileServiceReadyActivity`
 

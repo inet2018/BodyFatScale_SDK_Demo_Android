@@ -35,6 +35,9 @@ repositories {
 	}
 
 
+
+
+
 也可以使用aar包依赖,请自行下载放到项目的libs中
 
 
@@ -62,7 +65,21 @@ repositories {
 
 >  6.0及以上系统必须要定位权限，且需要手动获取权限
 
-## 三、初始化
+## 三、开始集成
+
+> 在AndroidManifest.xml application标签下面增加
+```
+<application>
+    ...
+
+    <service android:name="aicare.net.cn.iweightlibrary.wby.WBYService"/>
+
+</application>
+
+```
+
+
+> 初始化
 
 你可以直接让你自己的`Activity`类继承`BleProfileServiceReadyActivity`
 
