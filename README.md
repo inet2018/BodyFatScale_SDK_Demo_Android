@@ -83,9 +83,6 @@ You can directly make your own `Activity` class extend` BleProfileServiceReadyAc
 ```
 public class MyActivity extends BleProfileServiceReadyActivity
 
-```
-
-```
       @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);

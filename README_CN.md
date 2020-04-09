@@ -86,9 +86,6 @@ repositories {
 ```
 public class MyActivity extends BleProfileServiceReadyActivity
 
-```
-
-```
       @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
