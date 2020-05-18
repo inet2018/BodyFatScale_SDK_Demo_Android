@@ -9,10 +9,13 @@
 &emsp;
 &emsp;
 &emsp;
+&emsp;
+&emsp;
+&emsp;
+&emsp;
 
 
-
-# 蓝牙体脂秤SDK使用说明 - Android
+## 蓝牙体脂秤SDK使用说明 - Android
 
 [![](https://jitpack.io/v/inet2018/BodyFatScaleRepositoryAndroid.svg)](https://jitpack.io/#inet2018/BodyFatScaleRepositoryAndroid)
 
