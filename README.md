@@ -1,6 +1,6 @@
 # Warning - 温馨提示
 
-+ <font color="#ff0000" size=4> This SDK repository has been stopped for update and maintenance on 2020-05-01. To download and use the latest SDK, please click the following link:</font>
++ This SDK repository has been stopped for update and maintenance on 2020-05-01. To download and use the latest SDK, please click the following link:
  
 	> [ElinkThings - Support - SDK Instructions - AIFit](http://elinkthings.com/en/help-default.html)
 
@@ -9,9 +9,13 @@
 &emsp;
 &emsp;
 &emsp;
+&emsp;
+&emsp;
 
 
-# Body fat scale SDK Instructions - Android 
+
+
+## Body fat scale SDK Instructions - Android 
 
 [![](https://jitpack.io/v/inet2018/BodyFatScaleRepositoryAndroid.svg)](https://jitpack.io/#inet2018/BodyFatScaleRepositoryAndroid)
 
