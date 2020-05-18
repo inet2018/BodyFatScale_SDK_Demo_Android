@@ -1,12 +1,14 @@
 # Warning - 温馨提示
 
-&emsp;
-
-+ This SDK repository has been stopped for update and maintenance on 2020-05-01. To download and use the latest SDK, please click the following link:
++ <font color="#ff0000" size=4> This SDK repository has been stopped for update and maintenance on 2020-05-01. To download and use the latest SDK, please click the following link:</font>
  
 	> [ElinkThings - Support - SDK Instructions - AIFit](http://elinkthings.com/en/help-default.html)
 
 
+&emsp;
+&emsp;
+&emsp;
+&emsp;
 
 
 # Body fat scale SDK Instructions - Android 
